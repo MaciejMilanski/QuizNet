@@ -25,8 +25,8 @@ namespace QuizNet
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IQuestionRepository, InMemoryQuestionRepository>();
-            services.AddScoped<IQuizService, QuizService>();
+            //services.AddScoped<IQuestionRepository, InMemoryQuestionRepository>();
+            //services.AddScoped<IQuizService, QuizService>();
             services.AddControllersWithViews();
         }
 

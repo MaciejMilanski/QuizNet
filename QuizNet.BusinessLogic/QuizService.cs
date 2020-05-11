@@ -11,26 +11,26 @@ namespace QuizNet.BusinessLogic
 {
     public class QuizService : IQuizService
     {
-        private readonly IQuestionRepository _questionRepository;
+        //private readonly IQuestionRepository _questionRepository;
 
-        public QuizService(IQuestionRepository questionRepository)
-        {
-            _questionRepository = questionRepository;
-        }
+        //public QuizService(IQuestionRepository questionRepository)
+        //{
+        //    _questionRepository = questionRepository;
+        //}
 
-        public List<QuestionDto> GenerateQuiz()
-        {
-            var allQuestions = _questionRepository.GetAll().ToList();
-            List<Question> quizQuestions = allQuestions.OrderBy(x => Guid.NewGuid()).Take(2).ToList();
-            List<QuestionDto> quizQuestionsDto = quizQuestions.Select(x => new QuestionDto()
-            {
-                Answers = x.Answers.Select(y => new AnswerDto() {Id = y.Id, QuestionId = y.QuestionId, Text = y.Text}).ToArray(),
-                CorrectAnswerIndex = x.CorrectAnswerIndex,
-                Id = x.Id,
-                Text = x.Text
-            }).ToList();
+        //public List<QuestionDto> GenerateQuiz()
+        //{
+        //    var allQuestions = _questionRepository.GetAll().ToList();
+        //    List<Question> quizQuestions = allQuestions.OrderBy(x => Guid.NewGuid()).Take(2).ToList();
+        //    List<QuestionDto> quizQuestionsDto = quizQuestions.Select(x => new QuestionDto()
+        //    {
+        //        Answers = x.Answers.Select(y => new AnswerDto() {Id = y.Id, QuestionId = y.QuestionId, Text = y.Text}).ToArray(),
+        //        CorrectAnswerIndex = x.CorrectAnswerIndex,
+        //        Id = x.Id,
+        //        Text = x.Text
+        //    }).ToList();
 
-            return quizQuestionsDto;
-        }
+        //    return quizQuestionsDto;
+    //    }
     }
 }

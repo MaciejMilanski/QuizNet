@@ -1,12 +1,12 @@
-﻿@model QuizNet.DataAccess.Models.Question
+﻿@model QuizNet.DataAccess.Models.QuestionsViewModel
 @{
     ViewData["Title"] = "Get";
 }
 
-<h1>@Model.Text</h1>
+<h1>@Model.CONTENT</h1>
 <br/>
 <ul>
-    @for (int i = 0; i < Model.Answers.Length; i++)
+    @*@for (int i = 0; i < Model.Answers.Length; i++)
     {
         if (i == Model.CorrectAnswerIndex)
         {
@@ -16,6 +16,6 @@
         {
             <li class="list-group-item">@Model.Answers[i].Text</li>
         }
-    }
+    }*@
 </ul>
 

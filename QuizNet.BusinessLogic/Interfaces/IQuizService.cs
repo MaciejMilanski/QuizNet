@@ -8,7 +8,6 @@ namespace QuizNet.BusinessLogic.Interfaces
 {
     public interface IQuizService
     {
-        List<QuestionDto> GenerateQuiz();
 
     }
 }

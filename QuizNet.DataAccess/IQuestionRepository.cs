@@ -7,10 +7,10 @@ namespace QuizNet.DataAccess
 {
     public interface IQuestionRepository
     {
-        IEnumerable<Question> GetAll();
-        Question GetById(int id);
-        void Add(Question question);
-        void Update(Question updatedQuestion);
+        QuestionsViewModel GetAll();
+        QuestionsViewModel GetById(int id);
+        void Add(QuestionsViewModel question);
+        void Update(QuestionsViewModel updatedQuestion);
         void Delete(int questionId);
 
     }
