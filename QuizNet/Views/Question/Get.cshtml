@@ -1,21 +1,32 @@
-﻿@model QuizNet.DataAccess.Models.QuestionsViewModel
+﻿@model List<QuizNet.DataAccess.Models.AnswersViewModel>
 @{
     ViewData["Title"] = "Get";
 }
 
-<h1>@Model.CONTENT</h1>
-<br/>
-<ul>
-    @*@for (int i = 0; i < Model.Answers.Length; i++)
-    {
-        if (i == Model.CorrectAnswerIndex)
-        {
-            <li class="list-group-item active">@Model.Answers[i].Text</li>
-        }
-        else
-        {
-            <li class="list-group-item">@Model.Answers[i].Text</li>
-        }
-    }*@
-</ul>
+<h1>Details</h1>
+<br />
+
+<hr />
+@foreach (var answers in Model)
+{
+    <div class="mb-5">
+        <div class="row">
+            <div class="col-sm-9">
+                <h3>@answers.CONTENT</h3>
+            </div>
+        </div>
+        <br />
+        <ul class="list-group">
+
+            @*@foreach (var answer in question.Answers)
+                {
+                    <li class="list-group-item">@answer.Text</li>
+                }*@
+        </ul>
+    </div>
+
+
+}
+
+
 

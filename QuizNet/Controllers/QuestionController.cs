@@ -30,9 +30,13 @@ namespace QuizNet.Controllers
         public IActionResult Get(int id)
         {
             List<Answers> answerList = db.Answers.ToList();
-            //List<AnswersViewModel> answersVMList = answerList
+            List<AnswersViewModel> answersVMList = answerList.Select(x => new AnswersViewModel 
+            {
+                AID = x.AID,
+                CONTENT = x.CONTENT
+            }).Where(x => x.QUESTION_ID == 1).ToList();
 
-            //return View(answersVMList);
+            return View(answersVMList);
         }
 
         //    public IActionResult Delete(int id)
