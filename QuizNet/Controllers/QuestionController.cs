@@ -13,6 +13,7 @@ namespace QuizNet.Controllers
         private readonly IQuestionRepository _questionRepository;
         private readonly IQuizService _quizService;
         QuizNetDataBaseEntities db = new QuizNetDataBaseEntities();
+        
 
         public IActionResult GetAll()
         {
@@ -33,8 +34,9 @@ namespace QuizNet.Controllers
             List<AnswersViewModel> answersVMList = answerList.Select(x => new AnswersViewModel 
             {
                 AID = x.AID,
-                CONTENT = x.CONTENT
-            }).Where(x => x.QUESTION_ID == 1).ToList();
+                CONTENT = x.CONTENT,
+                QUESTION_ID = x.QUESTION_ID
+            }).Where(x => x.QUESTION_ID == id).ToList();
 
             return View(answersVMList);
         }

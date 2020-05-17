@@ -7,12 +7,17 @@
 <br />
 
 <hr />
+<h3>Answers</h3>
+<br />
 @foreach (var answers in Model)
 {
-    <div class="mb-5">
+    <div class="mb-sm-3">
         <div class="row">
-            <div class="col-sm-9">
-                <h3>@answers.CONTENT</h3>
+            <div class="col-sm-auto">
+                <ul>@answers.AID</ul>
+            </div>
+            <div class="col-sm-6">
+                <ul>@answers.CONTENT</ul>
             </div>
         </div>
         <br />
