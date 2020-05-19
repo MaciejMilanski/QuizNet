@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace QuizNet.DataAccess.Models
 {
-    public class AnswersViewModel
+    public class DetailsViewModel
     {
-        public int AID { get; set; }
-        public string CONTENT { get; set; }
-        public Nullable<int> QUESTION_ID { get; set; }
-
+        public List<QuestionsViewModel> QuestionsList { get; set; }
+        public List<AnswersViewModel> AnswersList { get; set; }
     }
 }
