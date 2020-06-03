@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace QuizNet.DataAccess.Models
 {
-    public class QuestionsViewModel
+    public class QuestionsDAM
     {
         public int QID { get; set; }
         public string CONTENT { get; set; }
-        public Nullable<int> CORRECT_ANSWER_ID { get; set; }
-        public string ANSWER_CONTENT { get; set; }
+        public List<AnswersDAM> ANSWERS { get; set; }
+        public int CORRECT_AID { get; set; }
     }
 }

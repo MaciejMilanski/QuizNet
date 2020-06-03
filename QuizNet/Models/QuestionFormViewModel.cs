@@ -5,27 +5,27 @@ namespace QuizNet.Models
 {
     public class QuestionFormViewModel
     {
-        public QuestionFormViewModel(QuestionDto question)
+        public QuestionFormViewModel(QuestionsDto question)
         {
             Question = question;
             //CorrectAnswerIndex = Question.Answers.ToList().FindIndex(a => a.IsCorrect);
         }
         public QuestionFormViewModel()
         {
-            Question = new QuestionDto();
+            Question = new QuestionsDto();
         }
-        public QuestionDto Question { get; set; }
+        public QuestionsDto Question { get; set; }
         public int CorrectAnswerIndex { get; set; }
 
-        public string ActionType
-        {
-            get
-            {
-                if (Question.Id == 0)
-                    return "Create";
-                else
-                    return "Edit";
-            }
-        }
+        //public string ActionType
+        //{
+            //get
+            //{
+            //    if (Question.Id == 0)
+            //        return "Create";
+            //    else
+            //        return "Edit";
+            //}
+        //}
     }
 }

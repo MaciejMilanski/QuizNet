@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuizNet.DataAccess.Models
 {
-    public class AnswersViewModel
+    public class AnswersDAM
     {
         public int AID { get; set; }
         public string CONTENT { get; set; }

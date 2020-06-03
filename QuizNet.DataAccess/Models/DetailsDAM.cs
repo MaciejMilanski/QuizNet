@@ -8,7 +8,7 @@ namespace QuizNet.DataAccess.Models
 {
     public class DetailsViewModel
     {
-        public List<QuestionsViewModel> QuestionsList { get; set; }
-        public List<AnswersViewModel> AnswersList { get; set; }
+        //public List<QuestionsViewModel> QuestionsList { get; set; }
+        //public List<Answers> AnswersList { get; set; }
     }
 }

@@ -10,49 +10,47 @@ namespace QuizNet.Controllers
 {
     public class QuestionController : Controller
     {
-        private readonly IQuestionRepository _questionRepository;
+        private readonly IQuestionsService _questionsService;
         private readonly IQuizService _quizService;
         QuizNetDataBaseEntities db = new QuizNetDataBaseEntities();
-        
+
+        public QuestionController(IQuestionsService questionService, IQuizService quizService)
+        {
+            _questionsService = questionService;
+            _quizService = quizService;
+        }
 
         public IActionResult GetAll()
         {
-            List<Questions> questionList = db.Questions.ToList();
-            List<QuestionsViewModel> questionVMList = questionList.Select(x => new QuestionsViewModel
-            {
-                QID = x.QID,
-                CONTENT = x.CONTENT,
-                ANSWER_CONTENT = x.Answers.CONTENT
-            }).ToList();
-
-            return View(questionVMList);
+            var questions = _questionsService.GetAll();
+            return View(questions);
         }
 
-        public IActionResult Get(int id)
-        {
-            List<Questions> questionList = db.Questions.ToList();
-            List<QuestionsViewModel> questionVMList = questionList.Select(x => new QuestionsViewModel
-            {
-                QID = x.QID,
-                CONTENT = x.CONTENT,
-                ANSWER_CONTENT = x.Answers.CONTENT
-            }).Where(x => x.QID == id).ToList();
+        //public IActionResult Get(int id)
+        //{
+        //    List<Questions> questionList = db.Questions.ToList();
+        //    List<QuestionsViewModel> questionVMList = questionList.Select(x => new QuestionsViewModel
+        //    {
+        //        QID = x.QID,
+        //        CONTENT = x.CONTENT,
+        //        ANSWER_CONTENT = x.Answers.CONTENT
+        //    }).Where(x => x.QID == id).ToList();
 
-            List<Answers> answerList = db.Answers.ToList();
-            List<AnswersViewModel> answersVMList = answerList.Select(x => new AnswersViewModel
-            {
-                AID = x.AID,
-                CONTENT = x.CONTENT,
-                QUESTION_ID = x.QUESTION_ID,  
-            }).Where(x => x.QUESTION_ID == id).ToList();
+        //    List<Answers> answerList = db.Answers.ToList();
+        //    List<AnswersViewModel> answersVMList = answerList.Select(x => new AnswersViewModel
+        //    {
+        //        AID = x.AID,
+        //        CONTENT = x.CONTENT,
+        //        QUESTION_ID = x.QUESTION_ID,  
+        //    }).Where(x => x.QUESTION_ID == id).ToList();
 
-            DetailsViewModel detailsVM = new DetailsViewModel();
-            detailsVM.QuestionsList = questionVMList;
-            detailsVM.AnswersList = answersVMList;
+        //    DetailsViewModel detailsVM = new DetailsViewModel();
+        //    detailsVM.QuestionsList = questionVMList;
+        //    detailsVM.AnswersList = answersVMList;
        
 
-            return View(detailsVM);
-        }
+        //    return View(detailsVM);
+        //}
 
         //    public IActionResult Delete(int id)
         //    {
@@ -60,12 +58,12 @@ namespace QuizNet.Controllers
         //        return RedirectToAction("GetAll");
         //    }
 
-        public IActionResult Create()
-        {
-            var newQuestion = new QuestionFormViewModel();
+        //public IActionResult Create()
+        //{
+        //    var newQuestion = new QuestionFormViewModel();
 
-            return View("QuestionForm", newQuestion);
-        }
+        //    return View("QuestionForm", newQuestion);
+        //}
 
         //    public IActionResult Edit(int id)
         //    {
