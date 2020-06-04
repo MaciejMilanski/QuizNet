@@ -8,5 +8,6 @@ namespace QuizNet.DataAccess
     public interface IQuestionsRepository
     {
         IEnumerable<Questions> GetAll();
+        Questions GetById( int id);
     }
 }

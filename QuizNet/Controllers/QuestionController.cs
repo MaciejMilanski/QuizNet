@@ -26,6 +26,11 @@ namespace QuizNet.Controllers
             return View(questions);
         }
 
+        public IActionResult Get(int id)
+        {
+            var details = _questionsService.GetDetails(id);
+            return View(details);
+        }
         //public IActionResult Get(int id)
         //{
         //    List<Questions> questionList = db.Questions.ToList();

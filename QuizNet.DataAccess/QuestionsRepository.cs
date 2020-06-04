@@ -14,31 +14,9 @@ namespace QuizNet.DataAccess
         {
             return db.Questions.AsEnumerable();
         }
-
-        //public IActionResult Get(int id)
-        //{
-        //    List<Questions> questionList = db.Questions.ToList();
-        //    List<QuestionsViewModel> questionVMList = questionList.Select(x => new QuestionsViewModel
-        //    {
-        //        QID = x.QID,
-        //        CONTENT = x.CONTENT,
-        //        ANSWER_CONTENT = x.Answers.CONTENT
-        //    }).Where(x => x.QID == id).ToList();
-
-        //    List<Answers> answerList = db.Answers.ToList();
-        //    List<AnswersViewModel> answersVMList = answerList.Select(x => new AnswersViewModel
-        //    {
-        //        AID = x.AID,
-        //        CONTENT = x.CONTENT,
-        //        QUESTION_ID = x.QUESTION_ID,
-        //    }).Where(x => x.QUESTION_ID == id).ToList();
-
-        //    DetailsViewModel detailsVM = new DetailsViewModel();
-        //    detailsVM.QuestionsList = questionVMList;
-        //    detailsVM.AnswersList = answersVMList;
-
-
-        //    return View(detailsVM);
-        //}
+        public Questions GetById(int id)
+        {
+            return db.Questions.SingleOrDefault(x => x.QID == id);
+        }
     }
 }
