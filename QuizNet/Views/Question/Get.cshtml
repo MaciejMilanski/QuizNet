@@ -14,17 +14,20 @@
             <h3>@questionDetails.CONTENT</h3>
         </div>
     </div>
+</div>
+<ul>
     @foreach (var answers in Model.AnswersDetails)
     {
-        <div class="row">
-            <div class="col-sm-4">
-                <ul>@answers.AID. @answers.CONTENT</ul>
-            </div>
-        </div>
+        if (answers.AID == questionDetails.CORRECT_ANSWER_ID)
+        {
+            <li class="list-group-item active">@answers.CONTENT</li>
+        }
+        else
+        {
+            <li class="list-group-item">@answers.CONTENT</li>
+        }
     }
-</div>
-<hr/>
+</ul>
 }
-
 
 

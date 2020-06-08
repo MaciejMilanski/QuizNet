@@ -12,9 +12,10 @@ namespace QuizNet.BusinessLogic
         private readonly IAnswersRepository _answersRepository;
         private readonly IMapper _mapper;
 
-        public QuestionsService(IQuestionsRepository questionsRepository, IMapper mapper)
+        public QuestionsService(IQuestionsRepository questionsRepository,IAnswersRepository answersRepository, IMapper mapper)
         {
             _questionRepository = questionsRepository;
+            _answersRepository = answersRepository;
             _mapper = mapper;
         }
 

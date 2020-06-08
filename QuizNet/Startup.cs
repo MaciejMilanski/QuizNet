@@ -29,6 +29,7 @@ namespace QuizNet
         {
             services.AddAutoMapper(typeof(MappingProfile));
             services.AddScoped<IQuestionsRepository, QuestionsRepository>();
+            services.AddScoped<IAnswersRepository, AnswersRepository>();
             services.AddScoped<IQuizService, QuizService>();
             services.AddScoped<IQuestionsService, QuestionsService>();
             services.AddControllersWithViews();

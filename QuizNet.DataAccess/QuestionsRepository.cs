@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using QuizNet.DataAccess;
+
 
 namespace QuizNet.DataAccess
 {
@@ -14,9 +12,9 @@ namespace QuizNet.DataAccess
         {
             return db.Questions.AsEnumerable();
         }
-        public Questions GetById(int id)
+        public IEnumerable<Questions> GetById(int id)
         {
-            return db.Questions.SingleOrDefault(x => x.QID == id);
+            return db.Questions.Where(x => x.QID == id).AsEnumerable();
         }
     }
 }

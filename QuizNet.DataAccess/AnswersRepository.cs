@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace QuizNet.DataAccess
 {
-    public class AnswersRepository
+    public class AnswersRepository :IAnswersRepository
     {
         QuizNetDataBaseEntities db = new QuizNetDataBaseEntities();
         public IEnumerable<Answers> GetByQID( int id )
         {
-            return db.Answers.Where(x => x.QUESTION_ID == id);
+            return db.Answers.Where(x => x.QUESTION_ID == id).AsEnumerable();
         }
     }
 }
