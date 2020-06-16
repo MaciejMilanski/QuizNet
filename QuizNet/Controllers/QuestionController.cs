@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QuizNet.BusinessLogic.Interfaces;
 using QuizNet.DataAccess;
-using QuizNet.DataAccess.Models;
 using QuizNet.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +30,32 @@ namespace QuizNet.Controllers
             var details = _questionsService.GetDetails(id);
             return View(details);
         }
+
+        public IActionResult Create()
+        {
+            var newQuestion = new QuestionFormViewModel();
+            return View("QuestionForm", newQuestion);
+        }
+        [HttpPost]
+        public IActionResult Save(QuestionFormViewModel viewModel)
+        {
+            if (!ModelState.IsValid)
+                return View("QuestionForm", viewModel);
+
+            var question = viewModel.Question;
+            var answers = viewModel.Answers;
+            answers[viewModel.CorrectAnswerId].IS_CORRECT = true;
+            if (question.QID != 0)
+            {
+                //_questionsService.Update(question);
+            }
+            else
+            {
+                //question = _questionsService.Add(question);
+            }
+
+            return RedirectToAction("Get", new { Id = question.QID });
+        }
         //public IActionResult Get(int id)
         //{
         //    List<Questions> questionList = db.Questions.ToList();
@@ -52,7 +77,7 @@ namespace QuizNet.Controllers
         //    DetailsViewModel detailsVM = new DetailsViewModel();
         //    detailsVM.QuestionsList = questionVMList;
         //    detailsVM.AnswersList = answersVMList;
-       
+
 
         //    return View(detailsVM);
         //}
@@ -63,12 +88,6 @@ namespace QuizNet.Controllers
         //        return RedirectToAction("GetAll");
         //    }
 
-        //public IActionResult Create()
-        //{
-        //    var newQuestion = new QuestionFormViewModel();
-
-        //    return View("QuestionForm", newQuestion);
-        //}
 
         //    public IActionResult Edit(int id)
         //    {
@@ -78,21 +97,6 @@ namespace QuizNet.Controllers
         //        return View("QuestionForm", viewModel);
         //    }
 
-        //    [HttpPost]
-        //    public IActionResult Save(QuestionFormViewModel viewModel)
-        //    {
-        //        if (!ModelState.IsValid)
-        //            return View("QuestionForm", viewModel);
-
-        //        var questionToSave = viewModel.GetQuestion();
-
-        //        if (questionToSave.Id != 0)
-        //            _questionRepository.Update(questionToSave);
-        //        else
-        //            _questionRepository.Add(questionToSave);
-
-        //        return RedirectToAction("Get", new { Id = questionToSave.Id });
-        //    }
 
         //    public IActionResult GenerateQuiz()
         //    {

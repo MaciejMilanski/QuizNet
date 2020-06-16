@@ -8,5 +8,6 @@ namespace QuizNet.BusinessLogic.DTO
         [Required(ErrorMessage = "Please specify answer text")]
         public string CONTENT { get; set; }
         public int QID { get; set; }
+        public bool IS_CORRECT { get; set; }
     }
 }

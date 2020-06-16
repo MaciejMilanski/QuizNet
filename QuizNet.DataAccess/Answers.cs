@@ -14,17 +14,9 @@ namespace QuizNet.DataAccess
     
     public partial class Answers
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Answers()
-        {
-            this.Questions = new HashSet<Questions>();
-        }
-    
         public int AID { get; set; }
         public string CONTENT { get; set; }
         public Nullable<int> QUESTION_ID { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Questions> Questions { get; set; }
+        public Nullable<short> IS_CORRECT { get; set; }
     }
 }

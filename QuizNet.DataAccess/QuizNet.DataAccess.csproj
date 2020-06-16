@@ -81,49 +81,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AnswersDAM.cs" />
-    <Compile Include="Models\DetailsDAM.cs" />
-    <Compile Include="Models\QuestionsDAM.cs" />
-    <Compile Include="QuestionsRepository.cs" />
-    <Compile Include="QuizNetDataBaseModel.Designer.cs">
+    <Compile Include="QuizNetDataBase.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuizNetDataBaseModel.edmx</DependentUpon>
+      <DependentUpon>QuizNetDataBase.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Questions.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>QuizNetDataBaseModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuizNetDataBaseModel.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
-    <Content Include="QuizNetDataBase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="QuizNetDataBase_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>QuizNetDataBase.mdf</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="QuizNetDataBaseModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QuizNetDataBaseModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <Compile Include="QuestionsRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="QuizNetDataBaseModel.edmx.diagram">
-      <DependentUpon>QuizNetDataBaseModel.edmx</DependentUpon>
+    <EntityDeploy Include="QuizNetDataBase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuizNetDataBase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="QuizNetDataBase.edmx.diagram">
+      <DependentUpon>QuizNetDataBase.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -141,6 +117,18 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuizNetDataBase.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuizNetDataBase.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -18,7 +18,7 @@
 <ul>
     @foreach (var answers in Model.AnswersDetails)
     {
-        if (answers.AID == questionDetails.CORRECT_ANSWER_ID)
+        if (answers.IS_CORRECT)
         {
             <li class="list-group-item active">@answers.CONTENT</li>
         }

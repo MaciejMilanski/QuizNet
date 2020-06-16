@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using QuizNet.DataAccess.Models;
+﻿using System.Collections.Generic;
 
 namespace QuizNet.DataAccess
 {

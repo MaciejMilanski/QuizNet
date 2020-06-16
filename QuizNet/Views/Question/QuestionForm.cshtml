@@ -1,4 +1,4 @@
-﻿@*@model QuestionFormViewModel
+﻿@model QuestionFormViewModel
 @{
     ViewData["Title"] = "Create";
 }
@@ -6,24 +6,24 @@
 <h1>@Model.ActionType</h1>
 
 <form method="post" asp-controller="Question" asp-action="Save">
-    <input asp-for="Question.Id" type="hidden" />
+    <input asp-for="Question.QID" type="hidden" />
     Question text:
-    <input class="form-control" asp-for="Question.Text" />
-    <span asp-validation-for="Question.Text" class="text-danger"></span>
+    <input class="form-control" asp-for="Question.CONTENT" />
+    <span asp-validation-for="Question.CONTENT" class="text-danger"></span>
 
-    Answer 1# <input class="form-control" asp-for="Question.Answers[0].Text" id="answer0" /><br />
-    <span asp-validation-for="Question.Answers[0].Text"></span>
+    Answer 1# <input class="form-control" asp-for="Answers[0].CONTENT" id="answer0" /><br />
+    <span asp-validation-for="Answers[0].CONTENT"></span>
 
-    Answer 2# <input class="form-control" asp-for="Question.Answers[1].Text" /><br />
-    <span asp-validation-for="Question.Answers[1].Text"></span>
+    Answer 2# <input class="form-control" asp-for="Answers[1].CONTENT" /><br />
+    <span asp-validation-for="Answers[1].CONTENT"></span>
 
-    Answer 3# <input class="form-control" asp-for="Question.Answers[2].Text" /><br />
-    <span asp-validation-for="Question.Answers[2].Text"></span>
+    Answer 3# <input class="form-control" asp-for="Answers[2].CONTENT" /><br />
+    <span asp-validation-for="Answers[2].CONTENT"></span>
 
-    Answer 4# <input class="form-control" asp-for="Question.Answers[3].Text" /><br />
-    <span asp-validation-for="Question.Answers[3].Text"></span>
+    Answer 4# <input class="form-control" asp-for="Answers[3].CONTENT" /><br />
+    <span asp-validation-for="Answers[3].CONTENT"></span>
 
-    <select class="custom-select" asp-for="CorrectAnswerIndex">
+    <select class="custom-select" asp-for="CorrectAnswerId">
         <option value="0" id="0" selected> 1#</option>
         <option value="1"> 2#</option>
         <option value="2"> 3#</option>
@@ -33,7 +33,7 @@
 
 </form>
 
-@section Scripts{
+@*@section Scripts{
 
     <script>
         $(document).ready(function() {

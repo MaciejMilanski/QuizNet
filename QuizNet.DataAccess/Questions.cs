@@ -16,8 +16,5 @@ namespace QuizNet.DataAccess
     {
         public int QID { get; set; }
         public string CONTENT { get; set; }
-        public Nullable<int> CORRECT_ANSWER_ID { get; set; }
-    
-        public virtual Answers Answers { get; set; }
     }
 }

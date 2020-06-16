@@ -5,7 +5,6 @@ using System.Text;
 using QuizNet.BusinessLogic.DTO;
 using QuizNet.BusinessLogic.Interfaces;
 using QuizNet.DataAccess;
-using QuizNet.DataAccess.Models;
 
 namespace QuizNet.BusinessLogic
 {

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using QuizNet.DataAccess.Models;
 using QuizNet.Models;
 using System.Collections.Generic;
 using System.Diagnostics;
