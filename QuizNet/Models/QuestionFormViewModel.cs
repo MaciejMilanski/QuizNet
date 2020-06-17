@@ -19,6 +19,8 @@ namespace QuizNet.Models
         {
             Question = new QuestionsDto();
             Answers = new List<AnswersDto>();
+            for(int i = 0; i < 4; i++)
+                Answers.Add(null);
         }
         public QuestionsDto Question { get; set; }
         public List<AnswersDto> Answers { get; set; }

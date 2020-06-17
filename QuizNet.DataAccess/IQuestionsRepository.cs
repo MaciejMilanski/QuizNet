@@ -6,5 +6,6 @@ namespace QuizNet.DataAccess
     {
         IEnumerable<Questions> GetAll();
         IEnumerable<Questions> GetById( int id);
+        void AddQuestion(Questions question);
     }
 }

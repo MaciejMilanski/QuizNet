@@ -16,5 +16,10 @@ namespace QuizNet.DataAccess
         {
             return db.Questions.Where(x => x.QID == id).AsEnumerable();
         }
+        public void AddQuestion(Questions question)
+        {
+            db.Questions.Add(question);
+            db.SaveChanges();
+        }
     }
 }

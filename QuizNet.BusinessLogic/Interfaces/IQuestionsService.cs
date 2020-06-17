@@ -8,7 +8,8 @@ namespace QuizNet.BusinessLogic.Interfaces
     public interface IQuestionsService
     {
         List<QuestionsDto> GetAll();
-        DetailsDto GetDetails(int id); 
+        DetailsDto GetDetails(int id);
+        QuestionsDto AddQuestion(QuestionsDto questionDto);
 
     }
 }

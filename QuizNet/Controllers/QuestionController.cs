@@ -39,8 +39,8 @@ namespace QuizNet.Controllers
         [HttpPost]
         public IActionResult Save(QuestionFormViewModel viewModel)
         {
-            if (!ModelState.IsValid)
-                return View("QuestionForm", viewModel);
+            //if (!ModelState.IsValid)
+            //    return View("QuestionForm", viewModel);
 
             var question = viewModel.Question;
             var answers = viewModel.Answers;
@@ -51,37 +51,11 @@ namespace QuizNet.Controllers
             }
             else
             {
-                //question = _questionsService.Add(question);
+                question = _questionsService.AddQuestion(question);
             }
 
             return RedirectToAction("Get", new { Id = question.QID });
         }
-        //public IActionResult Get(int id)
-        //{
-        //    List<Questions> questionList = db.Questions.ToList();
-        //    List<QuestionsViewModel> questionVMList = questionList.Select(x => new QuestionsViewModel
-        //    {
-        //        QID = x.QID,
-        //        CONTENT = x.CONTENT,
-        //        ANSWER_CONTENT = x.Answers.CONTENT
-        //    }).Where(x => x.QID == id).ToList();
-
-        //    List<Answers> answerList = db.Answers.ToList();
-        //    List<AnswersViewModel> answersVMList = answerList.Select(x => new AnswersViewModel
-        //    {
-        //        AID = x.AID,
-        //        CONTENT = x.CONTENT,
-        //        QUESTION_ID = x.QUESTION_ID,  
-        //    }).Where(x => x.QUESTION_ID == id).ToList();
-
-        //    DetailsViewModel detailsVM = new DetailsViewModel();
-        //    detailsVM.QuestionsList = questionVMList;
-        //    detailsVM.AnswersList = answersVMList;
-
-
-        //    return View(detailsVM);
-        //}
-
         //    public IActionResult Delete(int id)
         //    {
         //        _questionRepository.Delete(id);

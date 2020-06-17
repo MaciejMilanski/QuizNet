@@ -40,6 +40,14 @@ namespace QuizNet.BusinessLogic
 
             return detailsDto;
         }
+        public QuestionsDto AddQuestion(QuestionsDto questionDto)
+        {
+            var question = _mapper.Map<Questions>(questionDto);
+            _questionRepository.AddQuestion(question);
+
+            var createdQuestion = _mapper.Map<QuestionsDto>(question);
+            return createdQuestion;
+        }
 
     }
 }
