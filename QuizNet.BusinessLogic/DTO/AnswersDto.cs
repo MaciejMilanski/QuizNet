@@ -7,7 +7,7 @@ namespace QuizNet.BusinessLogic.DTO
         public int AID { get; set; }
         [Required(ErrorMessage = "Please specify answer text")]
         public string CONTENT { get; set; }
-        public int QID { get; set; }
+        public int QUESTION_ID { get; set; }
         public bool IS_CORRECT { get; set; }
     }
 }

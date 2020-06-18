@@ -25,6 +25,7 @@ namespace QuizNet.Models
         public QuestionsDto Question { get; set; }
         public List<AnswersDto> Answers { get; set; }
         public int CorrectAnswerId { get; set; }
+        public int QuestionId { get; set; }
 
         public string ActionType
         {

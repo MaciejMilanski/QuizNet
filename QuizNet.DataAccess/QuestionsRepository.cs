@@ -21,5 +21,6 @@ namespace QuizNet.DataAccess
             db.Questions.Add(question);
             db.SaveChanges();
         }
+
     }
 }

@@ -9,7 +9,7 @@ namespace QuizNet.BusinessLogic.Interfaces
     {
         List<QuestionsDto> GetAll();
         DetailsDto GetDetails(int id);
-        QuestionsDto AddQuestion(QuestionsDto questionDto);
+        QuestionsDto Add(QuestionsDto questionDto, List<AnswersDto> answersDto);
 
     }
 }

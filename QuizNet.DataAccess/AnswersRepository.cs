@@ -13,5 +13,10 @@ namespace QuizNet.DataAccess
         {
             return db.Answers.Where(x => x.QUESTION_ID == id).AsEnumerable();
         }
+        public void AddAnswers(List<Answers> answers) 
+        {
+            db.Answers.AddRange(answers);
+            db.SaveChanges();
+        }
     }
 }
