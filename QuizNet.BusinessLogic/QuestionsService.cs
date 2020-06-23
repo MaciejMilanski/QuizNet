@@ -29,7 +29,7 @@ namespace QuizNet.BusinessLogic
         public DetailsDto GetDetails(int id)
         {
             var question = _questionRepository.GetById(id);
-            var questionDto = _mapper.Map<List<QuestionsDto>>(question);
+            var questionDto = _mapper.Map<QuestionsDto>(question);
 
             var answers = _answersRepository.GetByQID(id);
             var answersDto = _mapper.Map<List<AnswersDto>>(answers);
@@ -47,11 +47,24 @@ namespace QuizNet.BusinessLogic
 
             var answers = _mapper.Map<List<Answers>>(answersDto);
             for (int i = 0; i < answers.Count; i++)
-                answers[i].QUESTION_ID = question.QID;
+                answers[i].QUESTION_ID = question.QID; 
             _answersRepository.AddAnswers(answers);
 
             var createdQuestion = _mapper.Map<QuestionsDto>(question);
             return createdQuestion;
+        }
+        public void Update(QuestionsDto questionDto, List<AnswersDto> answersDto)
+        {
+            var question = _mapper.Map<Questions>(questionDto);
+            int questionId = _questionRepository.UpdateQuestions(question);
+
+            var answers = _mapper.Map<List<Answers>>(answersDto);
+            _answersRepository.UpdateAnswers(answers, questionId);
+        }
+        public void Delete(int id)
+        {
+            _questionRepository.Delete(id);
+            _answersRepository.Delete(id);
         }
 
     }

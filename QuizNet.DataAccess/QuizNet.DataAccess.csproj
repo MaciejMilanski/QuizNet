@@ -69,8 +69,8 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="AnswersRepository.cs" />
-    <Compile Include="IAnswersRepository.cs" />
-    <Compile Include="IQuestionsRepository.cs" />
+    <Compile Include="Interfaces\IAnswersRepository.cs" />
+    <Compile Include="Interfaces\IQuestionsRepository.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

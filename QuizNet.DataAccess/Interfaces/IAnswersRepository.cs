@@ -10,5 +10,7 @@ namespace QuizNet.DataAccess
     {
         IEnumerable<Answers> GetByQID(int id);
         void AddAnswers(List<Answers> answers);
+        void UpdateAnswers(List<Answers> answers, int questionId);
+        void Delete(int id);
     }
 }

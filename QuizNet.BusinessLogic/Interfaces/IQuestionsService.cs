@@ -10,6 +10,8 @@ namespace QuizNet.BusinessLogic.Interfaces
         List<QuestionsDto> GetAll();
         DetailsDto GetDetails(int id);
         QuestionsDto Add(QuestionsDto questionDto, List<AnswersDto> answersDto);
+        void Update(QuestionsDto questionDto, List<AnswersDto> answersDto);
+        void Delete(int id);
 
     }
 }

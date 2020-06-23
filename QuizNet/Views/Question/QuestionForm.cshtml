@@ -9,19 +9,23 @@
     <input asp-for="Question.QID" type="hidden" />
     Question text:
     <input class="form-control" asp-for="Question.CONTENT" />
-    <span asp-validation-for="Question.CONTENT" class="text-danger"></span>
+    <span asp-validation-for="Question.CONTENT" class="text-danger"></span><br />
 
-    Answer 1# <input class="form-control" asp-for="Answers[0].CONTENT" id="answer0" /><br />
-    <span asp-validation-for="Answers[0].CONTENT"></span>
+    Answer 1# 
+    <input class="form-control" asp-for="Answers[0].CONTENT" id="answer0" />
+    <span asp-validation-for="Answers[0].CONTENT" class="text-danger"></span><br />
 
-    Answer 2# <input class="form-control" asp-for="Answers[1].CONTENT" /><br />
-    <span asp-validation-for="Answers[1].CONTENT"></span>
+    Answer 2# 
+    <input class="form-control" asp-for="Answers[1].CONTENT" />
+    <span asp-validation-for="Answers[1].CONTENT" class="text-danger"></span><br />
 
-    Answer 3# <input class="form-control" asp-for="Answers[2].CONTENT" /><br />
-    <span asp-validation-for="Answers[2].CONTENT"></span>
+    Answer 3# 
+    <input class="form-control" asp-for="Answers[2].CONTENT" />
+    <span asp-validation-for="Answers[2].CONTENT" class="text-danger"></span><br />
 
-    Answer 4# <input class="form-control" asp-for="Answers[3].CONTENT" /><br />
-    <span asp-validation-for="Answers[3].CONTENT"></span>
+    Answer 4# 
+    <input class="form-control" asp-for="Answers[3].CONTENT" />
+    <span asp-validation-for="Answers[3].CONTENT" class="text-danger"></span><br />
 
     <select class="custom-select" asp-for="CorrectAnswerId">
         <option value="0" id="0" selected> 1#</option>
@@ -33,7 +37,7 @@
 
 </form>
 
-@*@section Scripts{
+@section Scripts{
 
     <script>
         $(document).ready(function() {
@@ -46,4 +50,4 @@
     </script>
 
 
-}*@
+}

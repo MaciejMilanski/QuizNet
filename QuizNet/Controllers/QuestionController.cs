@@ -11,7 +11,6 @@ namespace QuizNet.Controllers
     {
         private readonly IQuestionsService _questionsService;
         private readonly IQuizService _quizService;
-        QuizNetDataBaseEntities db = new QuizNetDataBaseEntities();
 
         public QuestionController(IQuestionsService questionService, IQuizService quizService)
         {
@@ -47,7 +46,7 @@ namespace QuizNet.Controllers
             answers[viewModel.CorrectAnswerId].IS_CORRECT = true;
             if (question.QID != 0)
             {
-                //_questionsService.Update(question);
+                _questionsService.Update(question, answers);
             }
             else
             {
@@ -56,20 +55,20 @@ namespace QuizNet.Controllers
 
             return RedirectToAction("Get", new { Id = question.QID});
         }
-        //    public IActionResult Delete(int id)
-        //    {
-        //        _questionRepository.Delete(id);
-        //        return RedirectToAction("GetAll");
-        //    }
+        public IActionResult Delete(int id)
+        {
+            _questionsService.Delete(id);
+            return RedirectToAction("GetAll");
+        }
 
 
-        //    public IActionResult Edit(int id)
-        //    {
-        //        var questionToEdit = _questionRepository.GetById(id);
-        //        var viewModel = new QuestionFormViewModel(questionToEdit);
+        public IActionResult Edit(int id)
+        {
+            var questionToEdit = _questionsService.GetDetails(id);
+            var viewModel = new QuestionFormViewModel(questionToEdit.QuestionDetails, questionToEdit.AnswersDetails);
 
-        //        return View("QuestionForm", viewModel);
-        //    }
+            return View("QuestionForm", viewModel);
+        }
 
 
         //    public IActionResult GenerateQuiz()

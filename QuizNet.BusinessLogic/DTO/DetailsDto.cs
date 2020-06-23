@@ -6,7 +6,7 @@ namespace QuizNet.BusinessLogic.DTO
 {
     public class DetailsDto
     {
-        public List<QuestionsDto> QuestionDetails { get; set; }
+        public QuestionsDto QuestionDetails { get; set; }
         public List<AnswersDto> AnswersDetails { get; set; }
     }
 }

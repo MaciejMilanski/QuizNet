@@ -22,7 +22,7 @@
                 <a class="btn btn-primary"
                    asp-controller="Question"
                    asp-action="Edit"
-                   asp-route-id="@question.CONTENT.ToString()">Edit</a>
+                   asp-route-id="@question.QID.ToString()">Edit</a>
             </div>
             <div class="col-sm-1">
                 <a class="btn btn-outline-primary"
@@ -34,7 +34,7 @@
                 <a class="btn btn-danger"
                    asp-controller="Question"
                    asp-action="Delete"
-                   asp-route-id="@question.CONTENT.ToString()">Delete</a>
+                   asp-route-id="@question.QID.ToString()">Delete</a>
             </div>
 
         </div>

@@ -6,12 +6,10 @@
 <h1>Details</h1>
 <hr />
 
-@foreach (var questionDetails in Model.QuestionDetails)
-{
 <div class="mb-sm-3">
     <div class="row">
         <div class="col-sm-4">
-            <h3>@questionDetails.CONTENT</h3>
+            <h3>@Model.QuestionDetails.CONTENT</h3>
         </div>
     </div>
 </div>
@@ -28,6 +26,5 @@
         }
     }
 </ul>
-}
 
 
