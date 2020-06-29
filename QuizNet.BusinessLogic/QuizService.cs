@@ -1,35 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data;
 using System.Text;
 using QuizNet.BusinessLogic.DTO;
 using QuizNet.BusinessLogic.Interfaces;
 using QuizNet.DataAccess;
+using AutoMapper;
 
 namespace QuizNet.BusinessLogic
 {
     public class QuizService : IQuizService
     {
-        //private readonly IQuestionRepository _questionRepository;
+        private readonly IQuestionsRepository _questionRepository;
+        private readonly IAnswersRepository _answersRepository;
+        private readonly IMapper _mapper;
+        public List<DetailsDto> GenerateRandomQuiz()
+        {
+            DetailsDto detailsDto = new DetailsDto();
+            List<DetailsDto> quizList = new List<DetailsDto>();
 
-        //public QuizService(IQuestionRepository questionRepository)
-        //{
-        //    _questionRepository = questionRepository;
-        //}
+            var questions = _questionRepository.GetAll().ToList();
 
-        //public List<QuestionDto> GenerateQuiz()
-        //{
-        //    var allQuestions = _questionRepository.GetAll().ToList();
-        //    List<Question> quizQuestions = allQuestions.OrderBy(x => Guid.NewGuid()).Take(2).ToList();
-        //    List<QuestionDto> quizQuestionsDto = quizQuestions.Select(x => new QuestionDto()
-        //    {
-        //        Answers = x.Answers.Select(y => new AnswerDto() {Id = y.Id, QuestionId = y.QuestionId, Text = y.Text}).ToArray(),
-        //        CorrectAnswerIndex = x.CorrectAnswerIndex,
-        //        Id = x.Id,
-        //        Text = x.Text
-        //    }).ToList();
+            foreach (var element in questions)
+            {
+                var answers = _answersRepository.GetByQID(element.QID);
 
-        //    return quizQuestionsDto;
-    //    }
+                var questionDto = _mapper.Map<QuestionsDto>(element);
+                var answersDto = _mapper.Map<List<AnswersDto>>(answers);
+
+                detailsDto.QuestionDetails = questionDto;
+                detailsDto.AnswersDetails = answersDto;
+
+                quizList.Add(detailsDto);
+            }
+            quizList.OrderBy(x => Guid.NewGuid()).Take(3).ToList();
+
+            return quizList;
+        }
     }
 }

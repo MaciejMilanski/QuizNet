@@ -9,6 +9,11 @@
 <a class="btn btn-primary"
    asp-controller="Question"
    asp-action="Create">Add new question!</a>
+<a class="btn btn-primary" 
+   asp-controller="Question"
+   asp-action="GenerateQuiz">Generate Quiz!</a>
+
+
 
 <hr />
 @foreach (var question in Model)
@@ -42,9 +47,9 @@
         <ul class="list-group">
 
             @*@foreach (var answer in question.Answers)
-            {
-                <li class="list-group-item">@answer.Text</li>
-            }*@
+                {
+                    <li class="list-group-item">@answer.Text</li>
+                }*@
         </ul>
     </div>
 
