@@ -7,6 +7,7 @@ namespace QuizNet.BusinessLogic.Interfaces
 {
     public interface IQuizService
     {
+        List<DetailsDto> GenerateRandomQuiz();
 
     }
 }
