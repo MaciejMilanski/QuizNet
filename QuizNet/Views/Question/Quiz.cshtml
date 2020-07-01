@@ -1,27 +1,33 @@
-﻿@model List<QuizNet.BusinessLogic.DTO.QuestionsDto>
+﻿@model QuizViewModel
 @{
     ViewData["Title"] = "Quiz";
 }
 
 <h1>Generated Quiz!</h1>
-<br />
-
-<a class="btn btn-primary"
-   asp-controller="Question"
-   asp-action="GenerateQuiz">Generate new Quiz!</a>
 
 <hr />
-@foreach (var question in Model)
-{
-    <h3>@question.CONTENT</h3>
 
-    <ul class="list-group">
-        @*@foreach (var answer in question.Answers)
-        {
-            <li class="list-group-item">@answer.Text</li>
-        }*@
-    </ul>
+<form method="post" asp-controller="Question" asp-action="CheckQuiz">
 
-}
+    @for (int i = 0; i < Model.QuestionAnswers.Count; i++)
+    {
+        <div class="mb-3">
+            @Model.QuestionAnswers[i].QuestionDetails.CONTENT
+            <input type="hidden" asp-for="QuestionAnswers[i].QuestionDetails.QID" />
 
+            @for (int j = 0; j < Model.QuestionAnswers[i].AnswersDetails.Count; j++)
+            {
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" value="@Model.QuestionAnswers[i].AnswersDetails[j].AID" asp-for="UserAnswerIds[i]" id="q@(i)_a@(j)" />
+                    <label class="form-check-label" for="q@(i)_a@(j)">
+                        @Model.QuestionAnswers[i].AnswersDetails[j].CONTENT;
+                    </label>
+                </div>
+            }
+        </div>
+    }
 
+    <hr />
+
+    <button type="submit" class="btn btn-primary">Check my results!</button>
+</form>

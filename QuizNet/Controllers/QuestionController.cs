@@ -70,11 +70,11 @@ namespace QuizNet.Controllers
             return View("QuestionForm", viewModel);
         }
 
-
-        //    public IActionResult GenerateQuiz()
-        //    {
-        //        var questions = _quizService.GenerateQuiz();
-        //        return View("Quiz", questions);
-        //    }
+        public IActionResult GenerateQuiz()
+        {
+            var quizList = _quizService.GenerateRandomQuiz();
+            QuizViewModel quiz = new QuizViewModel(quizList);
+            return View("Quiz", quiz);
+        }
     }
 }

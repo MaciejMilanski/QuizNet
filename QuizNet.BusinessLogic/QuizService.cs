@@ -15,6 +15,13 @@ namespace QuizNet.BusinessLogic
         private readonly IQuestionsRepository _questionRepository;
         private readonly IAnswersRepository _answersRepository;
         private readonly IMapper _mapper;
+
+        public QuizService(IQuestionsRepository questionsRepository, IAnswersRepository answersRepository, IMapper mapper)
+        {
+            _questionRepository = questionsRepository;
+            _answersRepository = answersRepository;
+            _mapper = mapper;
+        }
         public List<DetailsDto> GenerateRandomQuiz()
         {
             DetailsDto detailsDto = new DetailsDto();
