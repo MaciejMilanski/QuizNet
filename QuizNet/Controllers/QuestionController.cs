@@ -76,5 +76,10 @@ namespace QuizNet.Controllers
             QuizViewModel quiz = new QuizViewModel(quizList);
             return View("Quiz", quiz);
         }
+
+        //public IActionResult CheckQuiz(QuizViewModel quizModel)
+        //{
+        //    var result = _quizService.CheckQuiz(quizModel.QuestionAnswers, quizModel.UserAnswerIds);    
+        //}
     }
 }

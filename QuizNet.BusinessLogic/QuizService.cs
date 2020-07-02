@@ -24,13 +24,14 @@ namespace QuizNet.BusinessLogic
         }
         public List<DetailsDto> GenerateRandomQuiz()
         {
-            DetailsDto detailsDto = new DetailsDto();
             List<DetailsDto> quizList = new List<DetailsDto>();
 
             var questions = _questionRepository.GetAll().ToList();
 
             foreach (var element in questions)
             {
+                DetailsDto detailsDto = new DetailsDto();
+
                 var answers = _answersRepository.GetByQID(element.QID);
 
                 var questionDto = _mapper.Map<QuestionsDto>(element);
@@ -41,9 +42,18 @@ namespace QuizNet.BusinessLogic
 
                 quizList.Add(detailsDto);
             }
-            quizList.OrderBy(x => Guid.NewGuid()).Take(3).ToList();
+            quizList  = quizList.OrderBy(x => Guid.NewGuid()).Take(3).ToList();
 
             return quizList;
         }
+        //public int CheckQuiz(List<DetailsDto> checkList, int[] userAnswers)
+        //{
+        //    int correctAnswersCount = 0;
+        //    for (int i = 0; i < checkList.Count; i++)
+        //    {
+        //        if (checkList[i].AnswersDetails.SingleOrDefault(x => x.IS_CORRECT).AID == userAnswers[i])
+        //            correctAnswersCount++;
+        //    }
+        //}
     }
 }
