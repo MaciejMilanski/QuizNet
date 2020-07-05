@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using QuizNet.BusinessLogic.DTO;
 using QuizNet.BusinessLogic.Interfaces;
 using QuizNet.DataAccess;
@@ -43,11 +44,15 @@ namespace QuizNet.BusinessLogic
         public QuestionsDto Add(QuestionsDto questionDto, List<AnswersDto> answersDto)
         {
             var question = _mapper.Map<Questions>(questionDto);
+            question.CREATION_TIME = DateTime.Now;
             _questionRepository.AddQuestion(question);
 
             var answers = _mapper.Map<List<Answers>>(answersDto);
             for (int i = 0; i < answers.Count; i++)
-                answers[i].QUESTION_ID = question.QID; 
+            {
+                answers[i].QUESTION_ID = question.QID;
+                answers[i].CREATION_TIME = DateTime.Now;
+            }
             _answersRepository.AddAnswers(answers);
 
             var createdQuestion = _mapper.Map<QuestionsDto>(question);

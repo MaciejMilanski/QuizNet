@@ -11,5 +11,6 @@ namespace QuizNet.BusinessLogic.DTO
         [Required(ErrorMessage = "Please specify question text")]
         [StringLength(300)]
         public string CONTENT { get; set; }
+        public DateTime CREATION_TIME { get; set; }
     }
 }

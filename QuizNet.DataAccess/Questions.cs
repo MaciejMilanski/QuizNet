@@ -16,5 +16,6 @@ namespace QuizNet.DataAccess
     {
         public int QID { get; set; }
         public string CONTENT { get; set; }
+        public DateTime CREATION_TIME { get; set; }
     }
 }

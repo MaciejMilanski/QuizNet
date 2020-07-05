@@ -18,6 +18,7 @@ namespace QuizNet.DataAccess
         public string CONTENT { get; set; }
         public Nullable<int> QUESTION_ID { get; set; }
         public Nullable<short> IS_CORRECT { get; set; }
+        public DateTime CREATION_TIME { get; set; }
 
     }
 }

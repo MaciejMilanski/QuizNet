@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace QuizNet.BusinessLogic.DTO
 {
@@ -9,5 +10,6 @@ namespace QuizNet.BusinessLogic.DTO
         public string CONTENT { get; set; }
         public int QUESTION_ID { get; set; }
         public bool IS_CORRECT { get; set; }
+        public DateTime CREATION_TIME { get; set; }
     }
 }
