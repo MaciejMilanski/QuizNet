@@ -46,14 +46,21 @@ namespace QuizNet.BusinessLogic
 
             return quizList;
         }
-        //public int CheckQuiz(List<DetailsDto> checkList, int[] userAnswers)
-        //{
-        //    int correctAnswersCount = 0;
-        //    for (int i = 0; i < checkList.Count; i++)
-        //    {
-        //        if (checkList[i].AnswersDetails.SingleOrDefault(x => x.IS_CORRECT).AID == userAnswers[i])
-        //            correctAnswersCount++;
-        //    }
-        //}
+        public int CheckQuiz(List<DetailsDto> checkList, int[] userAnswers)
+        {
+            int correctAnswersCount = 0;
+            for (int i = 0; i < checkList.Count; i++)
+            {
+                checkList[i].QuestionDetails = _mapper.Map<QuestionsDto>(_questionRepository.GetById(checkList[i].QuestionDetails.QID));
+                checkList[i].AnswersDetails = _mapper.Map<List<AnswersDto>>(_answersRepository.GetByQID(checkList[i].QuestionDetails.QID));
+            }
+
+            for (int i = 0; i < checkList.Count; i++)
+            {
+                if (checkList[i].AnswersDetails.SingleOrDefault(x => x.IS_CORRECT == true).AID == userAnswers[i])
+                    correctAnswersCount++;
+            }
+            return correctAnswersCount;
+        }
     }
 }

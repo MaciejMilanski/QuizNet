@@ -13,6 +13,7 @@
           <Property Name="CONTENT" Type="varchar(max)" />
           <Property Name="QUESTION_ID" Type="int" />
           <Property Name="IS_CORRECT" Type="smallint" />
+          <Property Name="CREATION_TIME" Type="datetime" />
         </EntityType>
         <EntityType Name="Questions">
           <Key>
@@ -20,6 +21,7 @@
           </Key>
           <Property Name="QID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CONTENT" Type="varchar(max)" />
+          <Property Name="CREATION_TIME" Type="datetime" />
         </EntityType>
         <EntityContainer Name="QuizNetDataBaseModelStoreContainer">
           <EntitySet Name="Answers" EntityType="Self.Answers" Schema="dbo" store:Type="Tables" />
@@ -37,6 +39,7 @@
           <Property Name="CONTENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="QUESTION_ID" Type="Int32" />
           <Property Name="IS_CORRECT" Type="Int16" />
+          <Property Name="CREATION_TIME" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Questions">
           <Key>
@@ -44,6 +47,7 @@
           </Key>
           <Property Name="QID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CONTENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CREATION_TIME" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityContainer Name="QuizNetDataBaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Answers" EntityType="Self.Answers" />
@@ -58,6 +62,7 @@
           <EntitySetMapping Name="Answers">
             <EntityTypeMapping TypeName="QuizNetDataBaseModel.Answers">
               <MappingFragment StoreEntitySet="Answers">
+                <ScalarProperty Name="CREATION_TIME" ColumnName="CREATION_TIME" />
                 <ScalarProperty Name="AID" ColumnName="AID" />
                 <ScalarProperty Name="CONTENT" ColumnName="CONTENT" />
                 <ScalarProperty Name="QUESTION_ID" ColumnName="QUESTION_ID" />
@@ -68,6 +73,7 @@
           <EntitySetMapping Name="Questions">
             <EntityTypeMapping TypeName="QuizNetDataBaseModel.Questions">
               <MappingFragment StoreEntitySet="Questions">
+                <ScalarProperty Name="CREATION_TIME" ColumnName="CREATION_TIME" />
                 <ScalarProperty Name="QID" ColumnName="QID" />
                 <ScalarProperty Name="CONTENT" ColumnName="CONTENT" />
               </MappingFragment>

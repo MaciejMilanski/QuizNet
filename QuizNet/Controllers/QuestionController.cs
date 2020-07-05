@@ -77,9 +77,18 @@ namespace QuizNet.Controllers
             return View("Quiz", quiz);
         }
 
-        //public IActionResult CheckQuiz(QuizViewModel quizModel)
-        //{
-        //    var result = _quizService.CheckQuiz(quizModel.QuestionAnswers, quizModel.UserAnswerIds);    
-        //}
+        public IActionResult CheckQuiz(QuizViewModel quizModel)
+        {
+            var result = _quizService.CheckQuiz(quizModel.QuestionAnswers, quizModel.UserAnswerIds);
+
+            var summaryViewModel = new QuizSummaryViewModel()
+            {
+                Questions = quizModel.QuestionAnswers,
+                UserAnswerIds = quizModel.UserAnswerIds,
+                CorrectAnswers = result
+            };
+
+            return View("QuizSummary", summaryViewModel);
+        }
     }
 }
