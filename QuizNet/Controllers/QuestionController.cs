@@ -4,6 +4,8 @@ using QuizNet.DataAccess;
 using QuizNet.Models;
 using System.Collections.Generic;
 using System.Linq;
+using QuizNet.Helpers;
+using QuizNet.BusinessLogic.DTO;
 
 namespace QuizNet.Controllers
 {
@@ -70,23 +72,35 @@ namespace QuizNet.Controllers
             return View("QuestionForm", viewModel);
         }
 
-        public IActionResult GenerateQuiz()
+        [Route("{controller}/{action}/{quizType}")]
+        public IActionResult GenerateQuiz(string quizType)
         {
-            var quizList = _quizService.GenerateRandomQuiz();
-            QuizViewModel quiz = new QuizViewModel(quizList);
+            List<DetailsDto> quizList = new List<DetailsDto>();
+            if (quizType == QuizType.Random)
+            {
+                 quizList = _quizService.GenerateRandomQuiz();
+            }
+            else if (quizType == QuizType.Recent)
+            {
+                 quizList = _quizService.GenerateRecentlyAddedQuestionQuiz();
+            }
+            else
+            {
+                return RedirectToAction("GetAll");
+            }
+            QuizViewModel quiz = new QuizViewModel(quizList, quizType);
             return View("Quiz", quiz);
         }
 
         public IActionResult CheckQuiz(QuizViewModel quizModel)
         {
+            var summaryViewModel = new QuizSummaryViewModel();
+
             var result = _quizService.CheckQuiz(quizModel.QuestionAnswers, quizModel.UserAnswerIds);
 
-            var summaryViewModel = new QuizSummaryViewModel()
-            {
-                Questions = quizModel.QuestionAnswers,
-                UserAnswerIds = quizModel.UserAnswerIds,
-                CorrectAnswers = result
-            };
+            summaryViewModel.Questions = quizModel.QuestionAnswers;
+            summaryViewModel.UserAnswerIds = quizModel.UserAnswerIds;
+            summaryViewModel.CorrectAnswers = result;
 
             return View("QuizSummary", summaryViewModel);
         }
