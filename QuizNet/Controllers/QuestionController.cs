@@ -94,6 +94,7 @@ namespace QuizNet.Controllers
 
         public IActionResult CheckQuiz(QuizViewModel quizModel)
         {
+
             var summaryViewModel = new QuizSummaryViewModel();
 
             var result = _quizService.CheckQuiz(quizModel.QuestionAnswers, quizModel.UserAnswerIds);
