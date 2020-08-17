@@ -1,38 +1,42 @@
-﻿using System.Collections.Generic;
-using System.Collections;
-using System.Linq;
+﻿using System.Linq;
+using QuizNet.DataAccess.Models;
+using System.Collections.Generic;
 
 
 namespace QuizNet.DataAccess
 {
     public class QuestionsRepository : IQuestionsRepository
     {
-        QuizNetDataBaseEntities db = new QuizNetDataBaseEntities();
+        private readonly DatabaseContext _dbContext;
+        public QuestionsRepository(DatabaseContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         public IEnumerable<Questions> GetAll()
         {
-            return db.Questions.AsEnumerable();
+            return _dbContext.Questions.AsEnumerable();
         }
         public Questions GetById(int id)
         {
-            return db.Questions.SingleOrDefault(x => x.QID == id);
+            return _dbContext.Questions.SingleOrDefault(x => x.ID == id);
         }
         public void AddQuestion(Questions question)
         {
-            db.Questions.Add(question);
-            db.SaveChanges();
+            _dbContext.Questions.Add(question);
+            _dbContext.SaveChanges();
         }
         public int UpdateQuestions(Questions question)
         {
-            var questionToUpdate = db.Questions.SingleOrDefault(x => x.QID == question.QID);
+            var questionToUpdate = _dbContext.Questions.SingleOrDefault(x => x.ID == question.ID);
             questionToUpdate.CONTENT = question.CONTENT;
-            db.SaveChanges();
-            return question.QID;
+            _dbContext.SaveChanges();
+            return question.ID;
         }
         public void Delete(int id)
         {
-            var questionToDelete = db.Questions.SingleOrDefault(x => x.QID == id);
-            db.Questions.Remove(questionToDelete);
-            db.SaveChanges();
+            var questionToDelete = _dbContext.Questions.SingleOrDefault(x => x.ID == id);
+            _dbContext.Questions.Remove(questionToDelete);
+            _dbContext.SaveChanges();
         }
 
     }

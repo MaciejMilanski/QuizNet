@@ -50,7 +50,7 @@ namespace QuizNet.Models
             {
                 return "list-group-item-success";
             }
-            else if (UserAnswerIds[userAnswerIndex] == answer.AID)
+            else if (UserAnswerIds[userAnswerIndex] == answer.ID)
             {
                 return "list-group-item-danger";
             }

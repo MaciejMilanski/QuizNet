@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using AutoMapper;
-using QuizNet.DataAccess;
+using QuizNet.DataAccess.Models;
 using QuizNet.BusinessLogic.DTO;
 
 namespace QuizNet.BusinessLogic.Mapper
