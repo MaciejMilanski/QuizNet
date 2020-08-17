@@ -30,7 +30,7 @@ namespace QuizNet.Models
         {
             get
             {
-                if (Question.QID == 0)
+                if (Question.ID == 0)
                     return "Create";
                 else
                     return "Edit";

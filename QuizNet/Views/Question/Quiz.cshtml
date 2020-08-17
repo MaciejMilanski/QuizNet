@@ -13,12 +13,12 @@
     {
         <div class="mb-3">
             @Model.QuestionAnswers[i].QuestionDetails.CONTENT
-            <input type="hidden" asp-for="QuestionAnswers[i].QuestionDetails.QID" />
+            <input type="hidden" asp-for="QuestionAnswers[i].QuestionDetails.ID" />
 
             @for (int j = 0; j < Model.QuestionAnswers[i].AnswersDetails.Count; j++)
             {
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" value="@Model.QuestionAnswers[i].AnswersDetails[j].AID" asp-for="UserAnswerIds[i]" id="q@(i)_a@(j)" />
+                    <input class="form-check-input" type="radio" value="@Model.QuestionAnswers[i].AnswersDetails[j].ID" asp-for="UserAnswerIds[i]" id="q@(i)_a@(j)" />
                     <label class="form-check-label" for="q@(i)_a@(j)">
                         @Model.QuestionAnswers[i].AnswersDetails[j].CONTENT;
                     </label>

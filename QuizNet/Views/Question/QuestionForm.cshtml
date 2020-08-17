@@ -6,7 +6,7 @@
 <h1>@Model.ActionType</h1>
 
 <form method="post" asp-controller="Question" asp-action="Save">
-    <input asp-for="Question.QID" type="hidden" />
+    <input asp-for="Question.ID" type="hidden" />
     Question text:
     <input class="form-control" asp-for="Question.CONTENT" />
     <span asp-validation-for="Question.CONTENT" class="text-danger"></span><br />

@@ -44,7 +44,7 @@ namespace QuizNet.Controllers
             var question = viewModel.Question;
             var answers = viewModel.Answers;
             answers[viewModel.CorrectAnswerId].IS_CORRECT = true;
-            if (question.QID != 0)
+            if (question.ID != 0)
             {
                 _questionsService.Update(question, answers);
             }
@@ -53,7 +53,7 @@ namespace QuizNet.Controllers
                 question = _questionsService.Add(question, answers);
             }
 
-            return RedirectToAction("Get", new { Id = question.QID});
+            return RedirectToAction("Get", new { Id = question.ID});
         }
         public IActionResult Delete(int id)
         {

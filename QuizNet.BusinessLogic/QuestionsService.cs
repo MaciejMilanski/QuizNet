@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using AutoMapper;
 using QuizNet.BusinessLogic.DTO;
 using QuizNet.BusinessLogic.Interfaces;
+using QuizNet.DataAccess.Models;
 using QuizNet.DataAccess;
-using AutoMapper;
 
 namespace QuizNet.BusinessLogic
 {
@@ -47,7 +48,7 @@ namespace QuizNet.BusinessLogic
 
             var answers = _mapper.Map<List<Answers>>(answersDto);
             for (int i = 0; i < answers.Count; i++)
-                answers[i].QUESTION_ID = question.QID; 
+                answers[i].QUESTION_ID = question.ID; 
             _answersRepository.AddAnswers(answers);
 
             var createdQuestion = _mapper.Map<QuestionsDto>(question);

@@ -4,7 +4,7 @@ namespace QuizNet.BusinessLogic.DTO
 {
     public class AnswersDto
     {
-        public int AID { get; set; }
+        public int ID { get; set; }
         [Required(ErrorMessage = "Please specify answer text")]
         public string CONTENT { get; set; }
         public int QUESTION_ID { get; set; }

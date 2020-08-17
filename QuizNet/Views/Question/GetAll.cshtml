@@ -25,30 +25,23 @@
                 <a class="btn btn-primary"
                    asp-controller="Question"
                    asp-action="Edit"
-                   asp-route-id="@question.QID.ToString()">Edit</a>
+                   asp-route-id="@question.ID.ToString()">Edit</a>
             </div>
             <div class="col-sm-1">
                 <a class="btn btn-outline-primary"
                    asp-controller="Question"
                    asp-action="Get"
-                   asp-route-id="@question.QID.ToString()">Details</a>
+                   asp-route-id="@question.ID.ToString()">Details</a>
             </div>
             <div class="col-sm-1">
                 <a class="btn btn-danger"
                    asp-controller="Question"
                    asp-action="Delete"
-                   asp-route-id="@question.QID.ToString()">Delete</a>
+                   asp-route-id="@question.ID.ToString()">Delete</a>
             </div>
 
         </div>
         <br />
-        <ul class="list-group">
-
-            @*@foreach (var answer in question.Answers)
-            {
-                <li class="list-group-item">@answer.Text</li>
-            }*@
-        </ul>
     </div>
 
 

@@ -32,7 +32,7 @@ namespace QuizNet.BusinessLogic
             {
                 DetailsDto detailsDto = new DetailsDto();
 
-                var answers = _answersRepository.GetByQID(element.QID);
+                var answers = _answersRepository.GetByQID(element.ID);
 
                 var questionDto = _mapper.Map<QuestionsDto>(element);
                 var answersDto = _mapper.Map<List<AnswersDto>>(answers);
@@ -51,13 +51,13 @@ namespace QuizNet.BusinessLogic
             int correctAnswersCount = 0;
             for (int i = 0; i < checkList.Count; i++)
             {
-                checkList[i].QuestionDetails = _mapper.Map<QuestionsDto>(_questionRepository.GetById(checkList[i].QuestionDetails.QID));
-                checkList[i].AnswersDetails = _mapper.Map<List<AnswersDto>>(_answersRepository.GetByQID(checkList[i].QuestionDetails.QID));
+                checkList[i].QuestionDetails = _mapper.Map<QuestionsDto>(_questionRepository.GetById(checkList[i].QuestionDetails.ID));
+                checkList[i].AnswersDetails = _mapper.Map<List<AnswersDto>>(_answersRepository.GetByQID(checkList[i].QuestionDetails.ID));
             }
 
             for (int i = 0; i < checkList.Count; i++)
             {
-                if (checkList[i].AnswersDetails.SingleOrDefault(x => x.IS_CORRECT == true).AID == userAnswers[i])
+                if (checkList[i].AnswersDetails.SingleOrDefault(x => x.IS_CORRECT == true).ID == userAnswers[i])
                     correctAnswersCount++;
             }
             return correctAnswersCount;
