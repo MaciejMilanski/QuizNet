@@ -10,7 +10,7 @@ using QuizNet.DataAccess;
 namespace QuizNet.DataAccess.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20200813072141_SeedingDb")]
+    [Migration("20200818143551_SeedingDb")]
     partial class SeedingDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

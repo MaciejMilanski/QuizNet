@@ -25,7 +25,7 @@ namespace QuizNet
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DatabaseContext>
-                (options => options.UseSqlServer("server = (LocalDB)\\MSSQLLocalDB; database = QuizNet; Trusted_Connection = true; MultipleActiveResultSets = true;"));
+                (options => options.UseSqlServer("server = (LocalDB)\\MSSQLLocalDB; database = QuizNet; Trusted_Connection = true; MultipleActiveResultSets = true"));
 
             services.AddAutoMapper(typeof(MappingProfile));
             services.AddScoped<IQuestionsRepository, QuestionsRepository>();

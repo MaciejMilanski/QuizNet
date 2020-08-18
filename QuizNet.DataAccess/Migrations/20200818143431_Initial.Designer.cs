@@ -10,7 +10,7 @@ using QuizNet.DataAccess;
 namespace QuizNet.DataAccess.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20200813060902_Initial")]
+    [Migration("20200818143431_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

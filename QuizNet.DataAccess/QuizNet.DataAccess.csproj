@@ -180,13 +180,13 @@
     <Compile Include="DatabaseContext.cs" />
     <Compile Include="Interfaces\IAnswersRepository.cs" />
     <Compile Include="Interfaces\IQuestionsRepository.cs" />
-    <Compile Include="Migrations\20200813060902_Initial.cs" />
-    <Compile Include="Migrations\20200813060902_Initial.designer.cs">
-      <DependentUpon>20200813060902_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\20200818143431_Initial.cs" />
+    <Compile Include="Migrations\20200818143431_Initial.designer.cs">
+      <DependentUpon>20200818143431_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20200813072141_SeedingDb.cs" />
-    <Compile Include="Migrations\20200813072141_SeedingDb.designer.cs">
-      <DependentUpon>20200813072141_SeedingDb.cs</DependentUpon>
+    <Compile Include="Migrations\20200818143551_SeedingDb.cs" />
+    <Compile Include="Migrations\20200818143551_SeedingDb.designer.cs">
+      <DependentUpon>20200818143551_SeedingDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DatabaseContextModelSnapshot.cs" />
     <Compile Include="Models\Answers.cs" />

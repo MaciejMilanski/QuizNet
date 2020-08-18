@@ -56,7 +56,7 @@ namespace QuizNet.BusinessLogic
             {
                 DetailsDto detailsDto = new DetailsDto();
 
-                var answers = _answersRepository.GetByQID(element.QID);
+                var answers = _answersRepository.GetByQID(element.ID);
 
                 var questionDto = _mapper.Map<QuestionsDto>(element);
                 var answersDto = _mapper.Map<List<AnswersDto>>(answers);
